@@ -2,11 +2,16 @@ import sbt._
 import Keys._
 object ScalaMilestonePlugin extends Plugin {
 
-  val alteredSettings = Seq(
-    scalaVersion := "2.11.0-M1",
+  // in the future we'll stop hardcoding scala version into plugin's source but for now it's ok
+  private val scalaMilestone = "2.11.0-M1"
+
+  val scalaMilestonePluginSettings = Seq(
+    scalaVersion := scalaMilestone,
     // disable cross building completely for releasing against milestones
     crossScalaVersions := Seq.empty,
+    // milestones need to use full version for scalaBinaryVersion
     scalaBinaryVersion <<= scalaVersion.identity,
+    // Make sure we have the sonatype release resolver for both Scala + other staged artifacts that haven't hit Maven Central
     resolvers += "Sonatype Release" at "https://oss.sonatype.org/content/repositories/releases"
   )
 
