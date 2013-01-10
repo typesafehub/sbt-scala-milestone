@@ -5,6 +5,8 @@ object ScalaMilestonePlugin extends Plugin {
   // in the future we'll stop hardcoding scala version into plugin's source but for now it's ok
   private val scalaMilestone = "2.11.0-M1"
 
+  private val consoleFormatEnabled = ConsoleLogger.formatEnabled
+
   val scalaMilestonePluginSettings = Seq(
     scalaVersion := scalaMilestone,
     // disable cross building completely for releasing against milestones
@@ -21,14 +23,14 @@ object ScalaMilestonePlugin extends Plugin {
   )
 
   val welcomeMessage = (scalaVersion, name, version) apply { (sv: String, name: String, version: String) =>
-    val magnetText = "\033[35m"
-    val redText = "\033[31m"
-    val defaultText = "\033[39m"
-    val reset = "\033[0m"
-    val boldOn = "\033[1m"
-    val boldOff = "\033[22m"
+    val magnetText = if (consoleFormatEnabled) "\033[35m" else ""
+    val redText = if (consoleFormatEnabled) "\033[31m" else ""
+    val defaultText = if (consoleFormatEnabled) "\033[39m" else ""
+    val reset = if (consoleFormatEnabled) "\033[0m" else ""
+    val boldOn = if (consoleFormatEnabled) "\033[1m" else ""
+    val boldOff = if (consoleFormatEnabled) "\033[22m" else ""
     val scalaVersionFormated = {
-      val wrongVersionMsg = "("+ redText + "WRONG, probably you forgot to add " + boldOn + "scalaMilestonePluginSettings" + boldOff + " to your project's settings" + defaultText + ")"
+      val wrongVersionMsg = "("+ redText + "WRONG! Probably you forgot to add " + boldOn + "scalaMilestonePluginSettings" + boldOff + " to your project's settings" + defaultText + ")"
       sv + (if (sv != scalaMilestone) " " + wrongVersionMsg else "")
     }
     def colorize(s: String) = Predef.augmentString(s).lines.map(line => magnetText + line + defaultText).mkString("\n")
