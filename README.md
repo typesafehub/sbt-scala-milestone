@@ -25,6 +25,6 @@ If you are using single project build configured with `build.sbt` file do:
     EOM
     } >> build.sbt
 
-This will reconfigure your build to work properly with Scala 2.10.0-M1.
+This will add the `scala-milestone-plugin` to your project and append settings at the end of your `build.sbt` file that reconfigure your build to work properly with Scala 2.10.0-M1.
 
 Optionally, add `project/local-plugins.sbt` to your `.gitignore` file so you won't add this plugin permamently (by commiting a change) by accident.
