@@ -71,7 +71,7 @@ object ScalaMilestonePlugin extends Plugin {
          |  crossScalaVersions, scalaBinaryVersion, scalaVersion, resolvers
          |
          |In the future we'll fix sbt so it handles milestones correctly out of the box.
-         |The file has been brought to you by Typesafe. If it doesn't work, feel free to ping
+         |This plugin has been brought to you by Typesafe. If it doesn't work, feel free to ping
          |us at scala-internals mailing list.
          |
          |KNOWN ISSUES
