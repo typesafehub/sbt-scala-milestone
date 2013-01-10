@@ -13,7 +13,7 @@ If you are using single project build configured with `build.sbt` file do:
     cat <<EOM
 
     //remove once you are done with releasing against Scala Milestone
-    addSbtPlugin("com.typesafe" % "scala-milestone-plugin" % "0.1")
+    addSbtPlugin("com.typesafe" % "scala-milestone-plugin" % "1.0")
     EOM
     } >> project/local-plugins.sbt
 

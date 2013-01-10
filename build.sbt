@@ -4,7 +4,7 @@ name := "scala-milestone-plugin"
 
 organization := "com.typesafe"
 
-version := "0.1"
+version := "1.0"
 
 publishMavenStyle := false
 
