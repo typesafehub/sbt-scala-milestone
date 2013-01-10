@@ -22,10 +22,15 @@ object ScalaMilestonePlugin extends Plugin {
 
   val welcomeMessage = (scalaVersion, name, version) apply { (sv: String, name: String, version: String) =>
     val magnetText = "\033[35m"
+    val redText = "\033[31m"
     val defaultText = "\033[39m"
     val reset = "\033[0m"
     val boldOn = "\033[1m"
     val boldOff = "\033[22m"
+    val scalaVersionFormated = {
+      val wrongVersionMsg = "("+ redText + "WRONG, probably you forgot to add " + boldOn + "scalaMilestonePluginSettings" + boldOff + " to your project's settings" + defaultText + ")"
+      sv + (if (sv != scalaMilestone) " " + wrongVersionMsg else "")
+    }
     def colorize(s: String) = Predef.augmentString(s).lines.map(line => magnetText + line + defaultText).mkString("\n")
     // I wish I could use Scala's string interpolation below...
     colorize {
@@ -47,11 +52,11 @@ object ScalaMilestonePlugin extends Plugin {
       """|
          |
          |Your project %1$s-%2$s
-         |is configured to be released against Scala-%3$s.
+         |is configured to be released against Scala %3$s.
          |
          |Type %4$srelease-against-scala-milestone-info%5$s for more information.
          |
-         |""".format(name, version, sv, boldOn, boldOff).stripMargin
+         |""".format(name, version, scalaVersionFormated, boldOn, boldOff).stripMargin
   }
 
   // Cosmetics, info, etc. below
