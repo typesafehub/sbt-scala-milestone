@@ -59,9 +59,6 @@ object ScalaMilestonePlugin extends Plugin {
          |""".format(name, version, scalaVersionFormated, boldOn, boldOff).stripMargin
   }
 
-  // Cosmetics, info, etc. below
-  // some constatns are duplicated below because sbt 0.12.x doesn't allow to declare vals in .sbt files
-
   val infoCommand = Command.command("release-against-scala-milestone-info") { state =>
     val msg =
       """|
@@ -77,7 +74,7 @@ object ScalaMilestonePlugin extends Plugin {
          |
          |KNOWN ISSUES
          |
-         |  1. Prints a warning about mismatching binary versions for Scala dependencies like
+         |  1. Sbt prints a warning about mismatching binary versions for Scala dependencies like
          |     library, actors or compiler. This is a bug in sbt 0.12.x that you can safely
          |     ignore.
          |""".stripMargin
