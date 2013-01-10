@@ -64,8 +64,8 @@ object ScalaMilestonePlugin extends Plugin {
   val infoCommand = Command.command("release-against-scala-milestone-info") { state =>
     val msg =
       """|
-         |Your build settings has been altered by `release-against-scala-2.11-M1.sbt` file.
-         |Once you are done with releasing against Scala milestone simply remove that file.
+         |Your build settings has been altered by scala-milestone-plugin.
+         |Once you are done with releasing against Scala milestone simply remove that plugin.
          |
          |The following settings has been altered:
          |  crossScalaVersions, scalaBinaryVersion, resolvers
