@@ -9,17 +9,21 @@ specially.
 
 If you are using single project build configured with `build.sbt` file do:
 
-    mkdir -p project &&
+    mkdir -p project && {
     cat <<EOM
 
     //remove once you are done with releasing against Scala Milestone
     addSbtPlugin("com.typesafe" % "scala-milestone-plugin" % "0.1")
-    EOM >> project/local-plugins.sbt
+    EOM
+    } >> project/local-plugins.sbt
 
-    cat <<EOM
+    { cat <<EOM
 
     //remove once you are done with releasing against Scala Milestone
-    scalaMilestonePluginSettings >> build.sbt
+    scalaMilestonePluginSettings
+
+    EOM
+    } >> build.sbt
 
 This will reconfigure your build to work properly with Scala 2.10.0-M1.
 
