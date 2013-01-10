@@ -41,7 +41,7 @@ object ScalaMilestonePlugin extends Plugin {
          |               ,.. / 
          |             ,'   '; 
          |  ,,.__    _,' /';  .
-         | :','  ~~~~    '. '~        %1$sThe release-against-scala-milestone v0.1
+         | :','  ~~~~    '. '~        %1$sThe scala-milestone-plugin v0.1
          |:' (   )         ):,        %1$sis %2$senabled%3$s.
          |'. '. .=----=..-~ .;'
          | '  ;' ::    ':. '"  
