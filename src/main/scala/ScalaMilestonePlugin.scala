@@ -68,7 +68,7 @@ object ScalaMilestonePlugin extends Plugin {
          |Once you are done with releasing against Scala milestone simply remove that plugin.
          |
          |The following settings has been altered:
-         |  crossScalaVersions, scalaBinaryVersion, resolvers
+         |  crossScalaVersions, scalaBinaryVersion, scalaVersion, resolvers
          |
          |In the future we'll fix sbt so it handles milestones correctly out of the box.
          |The file has been brought to you by Typesafe. If it doesn't work, feel free to ping
