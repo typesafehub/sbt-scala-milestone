@@ -7,7 +7,7 @@ specially.
 
 ## Installation
 
-### Add the plugin
+### 1. Add the plugin
 
 If you have bash handy here's copy&paste snippet you need to execute in root directory of your sbt project:
 ```
@@ -27,7 +27,7 @@ If you are don't bash on your machine create file `project/local-plugins.sbt` wi
 addSbtPlugin("com.typesafe.sbt" % "sbt-scala-milestone-plugin" % "1.0")
 ```
 
-### Configure settings
+### 2. Configure settings
 
 Now you need to append `sbtScalaMilestonePluginSettings` to your settings.
 
@@ -53,3 +53,8 @@ sbtScalaMilestonePluginSettings
 Appending settings provided by `sbt-scala-milestone-plugin` at the end of your `build.sbt` file will reconfigure your build to work properly with Scala 2.11.0-M1.
 
 Optionally, add `project/local-plugins.sbt` to your `.gitignore` file so you won't add this plugin permamently (by commiting a change) by accident.
+
+## Usage
+
+Once plugin is installed you can use regular commands and tasks like `publish-local` and `publish`. Once you are done with publishing against Scala milestone
+just remove the plugin and reference to settings it provides.
