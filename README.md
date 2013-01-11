@@ -7,24 +7,49 @@ specially.
 
 ## Installation
 
-If you are using single project build configured with `build.sbt` file do:
+### Add the plugin
 
-    mkdir -p project && {
-    cat <<EOM
+If you have bash handy here's copy&paste snippet you need to execute in root directory of your sbt project:
+```
+mkdir -p project && {
+cat <<EOM
 
-    //remove once you are done with releasing against Scala Milestone
-    addSbtPlugin("com.typesafe.sbt" % "scala-milestone-plugin" % "1.0")
-    EOM
-    } >> project/local-plugins.sbt
+//remove once you are done with releasing against Scala Milestone
+addSbtPlugin("com.typesafe.sbt" % "scala-milestone-plugin" % "1.0")
+EOM
+} >> project/local-plugins.sbt
+```
 
-    { cat <<EOM
+If you are don't bash on your machine create file `project/local-plugins.sbt` with the following two lines:
 
-    //remove once you are done with releasing against Scala Milestone
-    scalaMilestonePluginSettings
+```
+//remove once you are done with releasing against Scala Milestone
+addSbtPlugin("com.typesafe.sbt" % "scala-milestone-plugin" % "1.0")
+```
 
-    EOM
-    } >> build.sbt
+### Configure settings
 
-This will add the `scala-milestone-plugin` to your project and append settings at the end of your `build.sbt` file that reconfigure your build to work properly with Scala 2.10.0-M1.
+Now you need to append `scalaMilestonePluginSettings` to your settings.
+
+If you are using single project build configured with `build.sbt` file here's bash snippet that will do the job for you:
+
+```
+{ cat <<EOM
+
+//remove once you are done with releasing against Scala Milestone
+scalaMilestonePluginSettings
+
+EOM
+} >> build.sbt
+```
+
+Or you can do it manually by opening `build.sbt` and appending the following lines _at the end of the file_:
+
+```
+//remove once you are done with releasing against Scala Milestone
+scalaMilestonePluginSettings
+```
+
+Appending settings provided by `scala-milestoneplugin` at the end of your `build.sbt` file will reconfigure your build to work properly with Scala 2.10.0-M1.
 
 Optionally, add `project/local-plugins.sbt` to your `.gitignore` file so you won't add this plugin permamently (by commiting a change) by accident.
