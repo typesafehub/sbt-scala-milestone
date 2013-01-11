@@ -2,7 +2,7 @@ sbtPlugin := true
 
 name := "scala-milestone-plugin"
 
-organization := "com.typesafe"
+organization := "com.typesafe.sbt"
 
 version := "1.0"
 
