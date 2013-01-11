@@ -1,6 +1,6 @@
 sbtPlugin := true
 
-name := "scala-milestone-plugin"
+name := "sbt-scala-milestone-plugin"
 
 organization := "com.typesafe.sbt"
 

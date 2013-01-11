@@ -15,7 +15,7 @@ mkdir -p project && {
 cat <<EOM
 
 //remove once you are done with releasing against Scala Milestone
-addSbtPlugin("com.typesafe.sbt" % "scala-milestone-plugin" % "1.0")
+addSbtPlugin("com.typesafe.sbt" % "sbt-scala-milestone-plugin" % "1.0")
 EOM
 } >> project/local-plugins.sbt
 ```
@@ -24,12 +24,12 @@ If you are don't bash on your machine create file `project/local-plugins.sbt` wi
 
 ```
 //remove once you are done with releasing against Scala Milestone
-addSbtPlugin("com.typesafe.sbt" % "scala-milestone-plugin" % "1.0")
+addSbtPlugin("com.typesafe.sbt" % "sbt-scala-milestone-plugin" % "1.0")
 ```
 
 ### Configure settings
 
-Now you need to append `scalaMilestonePluginSettings` to your settings.
+Now you need to append `sbtScalaMilestonePluginSettings` to your settings.
 
 If you are using single project build configured with `build.sbt` file here's bash snippet that will do the job for you:
 
@@ -37,7 +37,7 @@ If you are using single project build configured with `build.sbt` file here's ba
 { cat <<EOM
 
 //remove once you are done with releasing against Scala Milestone
-scalaMilestonePluginSettings
+sbtScalaMilestonePluginSettings
 
 EOM
 } >> build.sbt
@@ -47,9 +47,9 @@ Or you can do it manually by opening `build.sbt` and appending the following lin
 
 ```
 //remove once you are done with releasing against Scala Milestone
-scalaMilestonePluginSettings
+sbtScalaMilestonePluginSettings
 ```
 
-Appending settings provided by `scala-milestone-plugin` at the end of your `build.sbt` file will reconfigure your build to work properly with Scala 2.10.0-M1.
+Appending settings provided by `sbt-scala-milestone-plugin` at the end of your `build.sbt` file will reconfigure your build to work properly with Scala 2.11.0-M1.
 
 Optionally, add `project/local-plugins.sbt` to your `.gitignore` file so you won't add this plugin permamently (by commiting a change) by accident.

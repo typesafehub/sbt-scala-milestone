@@ -1,13 +1,15 @@
+package com.typesafe.sbt
+
 import sbt._
 import Keys._
-object ScalaMilestonePlugin extends Plugin {
+object SbtScalaMilestonePlugin extends Plugin {
 
   // in the future we'll stop hardcoding scala version into plugin's source but for now it's ok
   private val scalaMilestone = "2.11.0-M1"
 
   private val consoleFormatEnabled = ConsoleLogger.formatEnabled
 
-  val scalaMilestonePluginSettings = Seq(
+  val sbtScalaMilestonePluginSettings = Seq(
     scalaVersion := scalaMilestone,
     // disable cross building completely for releasing against milestones
     crossScalaVersions := Seq.empty,
