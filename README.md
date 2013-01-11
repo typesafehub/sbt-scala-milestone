@@ -50,6 +50,6 @@ Or you can do it manually by opening `build.sbt` and appending the following lin
 scalaMilestonePluginSettings
 ```
 
-Appending settings provided by `scala-milestoneplugin` at the end of your `build.sbt` file will reconfigure your build to work properly with Scala 2.10.0-M1.
+Appending settings provided by `scala-milestone-plugin` at the end of your `build.sbt` file will reconfigure your build to work properly with Scala 2.10.0-M1.
 
 Optionally, add `project/local-plugins.sbt` to your `.gitignore` file so you won't add this plugin permamently (by commiting a change) by accident.
